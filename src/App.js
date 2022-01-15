@@ -1,7 +1,6 @@
 import { type } from '@testing-library/user-event/dist/type';
 import React, { useState } from 'react';
 const api = {
-  key: "52a9eed87d5b49bcbf8850ff848b0866",
   base: "https://api.openweathermap.org/data/2.5/",
 }
 
@@ -11,7 +10,8 @@ function App() {
 
   const search = evt => {
     if (evt.key === "Enter") {
-      fetch(`${api.base}weather?q=${query}&units=metric&APPID=${api.key}`)
+      console.log(process.env) 
+      fetch(`${api.base}weather?q=${query}&units=metric&APPID=${process.env.REACT_APP_WEATHER_API_KEY}`)
       .then(res => res.json())
       .then(result => {
         setWeather(result);

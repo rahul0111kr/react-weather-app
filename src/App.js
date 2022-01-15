@@ -1,4 +1,3 @@
-import { type } from '@testing-library/user-event/dist/type';
 import React, { useState } from 'react';
 const api = {
   base: "https://api.openweathermap.org/data/2.5/",
